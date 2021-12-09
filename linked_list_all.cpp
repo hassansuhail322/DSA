@@ -37,167 +37,168 @@ Node* create_list(Node*head,int a[],int n)
 
 
 
-// void rev_list_stack(Node*p)
-// {
+void rev_list_stack(Node*p)
+{
 
-// stack<Node*> st;
-// Node*temp=p;
-// while(temp)
-// {
-//     st.push(temp);
-//     temp=temp->next;
-// }
-// head=st.top();
-// st.pop();
-// head->next=NULL;
-// p=head;
-// while(!st.empty())
-//     {
-//         p->next=st.top();
-//         st.pop();
-//         p=p->next;
-//         p->next=NULL;
-//     }
-
-
-// }
+stack<Node*> st;
+Node*temp=p;
+while(temp)
+{
+    st.push(temp);
+    temp=temp->next;
+}
+head=st.top();
+st.pop();
+head->next=NULL;
+p=head;
+while(!st.empty())
+    {
+        p->next=st.top();
+        st.pop();
+        p=p->next;
+        p->next=NULL;
+    }
 
 
+}
 
 
 
 
 
-// void rev_list(Node *p)
-// {
-//     if (p->next==NULL)
-//     {
-//         head=p;
-//         return ;
-
-//     }
-//     rev_list(p->next);
-//     Node*temp=p->next;
-//     p->next=NULL;
-//     temp->next=p;
-
-// }
 
 
+void rev_list(Node *p)
+{
+    if (p->next==NULL)
+    {
+        head=p;
+        return ;
+
+    }
+    rev_list(p->next);
+    Node*temp=p->next;
+    p->next=NULL;
+    temp->next=p;
+
+}
 
 
 
-void display(Node*p)
+
+
+ void display(Node*p)
 {
     while(p!=NULL)
     {
         cout<<p->data;
         p=p->next;
     }
+}
     
-    //
-   // do while loop is used for printing circrlar linked list 
+//    do while loop is used for printing circrlar linked list 
 
-// do
-// {
-//  cout<<p->data;
-//  p=p->next;
-// }
-// while(p!=head);
+void display (Node * p)
+do
+{
+ cout<<p->data;
+ p=p->next;
+}
+while(p!=head);
 }
 
 
 
 
-// int  detect_loop(Node*fast)
-//  {  
-//     Node*slow=fast;
-//     while(fast && fast->next && slow)
-//     {
-//         slow=slow->next;
-//         fast=fast->next->next;
-//         if (fast==slow)
-//         {
-//             //delete_loop(head,fast);
-//             return 1;
-//         }
-//     }               
-// return 0;
-//  }
+int  detect_loop(Node*fast)
+ {  
+    Node*slow=fast;
+    while(fast && fast->next && slow)
+    {
+        slow=slow->next;
+        fast=fast->next->next;
+        if (fast==slow)
+        {
+            //delete_loop(head,fast);
+            return 1;
+        }
+    }               
+return 0;
+ }
 
 
 
 
-//  void delete_loop(Node*temp,Node*fast)
-//  {
-//     while(1)
-//     {
-//         if(temp->next==fast->next)    // if this condition satisfy than fast->next is the starting point of the linked list;
-//         {
-//             fast->next=NULL;   
-//             break;
-//         }
+ void delete_loop(Node*temp,Node*fast)
+ {
+    while(1)
+    {
+        if(temp->next==fast->next)    // if this condition satisfy than fast->next is the starting point of the linked list;
+        {
+            fast->next=NULL;   
+            break;
+        }
 
-//         temp=temp->next;
-//         fast=fast->next;
-//     }   
+        temp=temp->next;
+        fast=fast->next;
+    }   
 
-//  }
+ }
 
-// void move_last_node(Node*p)
-// {
-//     Node*temp=NULL;
-//     while(p->next!=NULL)
-//     {
-//         temp=p;
-//         p=p->next;
+void move_last_node(Node*p)
+{
+    Node*temp=NULL;
+    while(p->next!=NULL)
+    {
+        temp=p;
+        p=p->next;
 
-//     }
-//     temp->next=NULL;
-//     p->next=head;
-//     head=p;
-// }
+    }
+    temp->next=NULL;
+    p->next=head;
+    head=p;
+}
 
 
 
-// void sort_linked_list(Node*p)
-// {
+void sort_linked_list(Node*p)
+{
 
-//  while(p->next!=NULL)
-//  {
+ while(p->next!=NULL)
+ {
 
-//      Node*temp=p->next;
-//      while(temp)
-//      {
-//          if (p->data>temp->data)
-//          {
-//              //swap(p->data,temp->data);
-//              int x=p->data;
-//              p->data=temp->data;
-//              temp->data=x;
-//          }
-//          temp=temp->next;
-//      }
-//      p=p->next;
-//  }
+     Node*temp=p->next;
+     while(temp)
+     {
+         if (p->data>temp->data)
+         {
+             //swap(p->data,temp->data);
+             int x=p->data;
+             p->data=temp->data;
+             temp->data=x;
+         }
+         temp=temp->next;
+     }
+     p=p->next;
+ }
 
-// }
+}
 
-// void  delete_duplicate(Node*p)
-// {
-//     while(p && p->next)
-//     {
-//         if (p->data==p->next->data)
-//         {
-//             p->next=p->next->next;
-//         }
-//         else
-//         {
-//             p=p->next;
-//         }
+void  delete_duplicate(Node*p)
+{
+    while(p && p->next)
+    {
+        if (p->data==p->next->data)
+        {
+            p->next=p->next->next;
+        }
+        else
+        {
+            p=p->next;
+        }
 
-//     }
-// }
+    }
+}
  
 
 Node* find_middle(Node* fast)
